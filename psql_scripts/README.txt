@@ -63,3 +63,5 @@ retorno:
 run example:
 	con parametro: sh dump_qaint.sh nombre_mi_nueva_bd
 	sin parametro: sh dump_qaint.sh 
+
+WARNING: si el nombre de la bd que pasaron existe la borrara.

@@ -15,16 +15,16 @@ nombre_backup="$1"
 # pg_restore -U postgres -d  
 
 echo "Creando bd temporal"
-createdb -h localhost -p 5432 -U postgres "$nombre_bd"
+PGPASSWORD='123456' createdb -h localhost -p 5432 -U postgres "$nombre_bd"
 
 echo "Ejecutando pg_restore"
-pg_restore -h localhost -p 5432 -U postgres -d "$nombre_bd" "$nombre_backup"
+PGPASSWORD='123456' pg_restore -h localhost -p 5432 -U postgres -d "$nombre_bd" "$nombre_backup"
 
 echo "Creando dump.sql de la bd"
-pg_dump -h localhost -p 5432 -U postgres "$nombre_bd" > dump_"$nombre_bd".sql
+PGPASSWORD='123456' pg_dump -h localhost -p 5432 -U postgres "$nombre_bd" > dump_"$nombre_bd".sql
 
 echo "Borrando db temporal"
-dropdb -h localhost -p 5432 -U postgres "$nombre_bd"
+PGPASSWORD='123456' dropdb -h localhost -p 5432 -U postgres "$nombre_bd"
 
 
 
