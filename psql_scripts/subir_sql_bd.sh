@@ -8,7 +8,7 @@ if PGPASSWORD='123456' psql -lqt -h localhost -p 5432 -U postgres | cut -d \| -f
 	PGPASSWORD='123456' dropdb -h localhost -p 5432 -U postgres "$nombre_bd"
 fi
 
-echo "Creando bd temporal"
+echo "Creando bd"
 PGPASSWORD='123456' createdb -h localhost -p 5432 -U postgres "$nombre_bd"
 
 echo "Creando dump.sql de la bd"
